@@ -18,9 +18,10 @@ timeZone = "UTC"
 #   tags = "/tags/:slug/"
 
 [params]
-  author = "Zeus"
+  author = "hackolympus"
   description = "A security blog and mind dump ..."
   comments = false
+  math = true
 
 [menus]
   [[menus.main]]
@@ -32,6 +33,11 @@ timeZone = "UTC"
     name = 'Posts'
     pageRef = '/posts/'
     weight = 20
+
+  [[menus.main]]
+    name = 'Notes'
+    pageRef = '/notes/'
+    weight = 30
 
 [outputs]
   home = ["HTML", "RSS"]
@@ -48,10 +54,16 @@ timeZone = "UTC"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [["\\[", "\\]"], ["$$", "$$"]]
+          inline = [["\\(", "\\)"]]
 
 # https://gohugo.io/quick-reference/syntax-highlighting-styles/#styles
 [markup.highlight]
-    style = "vs"
+    style = "borland"
     guessSyntax = true
 
 [caches]

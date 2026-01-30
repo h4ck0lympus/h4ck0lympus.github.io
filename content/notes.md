@@ -1,7 +1,7 @@
 +++
 title = 'Notes'
 date = '2026-01-19T17:57:48-07:00'
-draft = true
+draft = false
 +++
 
 # ROP
@@ -94,7 +94,7 @@ target = malloc(0x10); // get target
 // write/read from target ... 
 ```
 
-### Double-free
+### Double-free protection bypass
 
 * **UAF write is required.**
 
@@ -127,7 +127,7 @@ void* b = malloc(0x35); // get chunk of size 0x40
 // b == &fake_chunks[2] (user controlled address)
 ```
 
-![how2heap poc](https://github.com/shellphish/how2heap/blob/master/glibc_2.35/tcache_house_of_spirit.c)
+[how2heap poc](https://github.com/shellphish/how2heap/blob/master/glibc_2.35/tcache_house_of_spirit.c)
 
 ## Fastbins
 
